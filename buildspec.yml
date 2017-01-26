@@ -2,8 +2,8 @@
 
 version: 0.1
 
-# environment_variables:
-#   plaintext:
+environment_variables:
+  plaintext:
 #     key: "value"
 #     key: "value"
             
@@ -15,20 +15,20 @@ phases:
       - ln -sf /usr/bin/docker.io /usr/local/bin/docker
       - update-rc.d docker defaults
       - service docker start
-#   pre_build:
-#     commands:
+  pre_build:
+    commands:
 #       - command
 #       - command
   build:
     commands:
       - docker build -t thing:dockerthing .
     #   - command
-#   post_build:
-#     commands:
+  post_build:
+    commands:
 #       - command
 #       - command
-# artifacts:
-#   files:
+artifacts:
+  files:
 #     - location
 #     - location
   discard-paths: yes
