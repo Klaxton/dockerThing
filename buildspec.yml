@@ -1,1 +1,25 @@
-"version: 0.1\n\nenvironment_variables:\n  plaintext:\n    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"\n\nphases:\n  install:\n    commands:\n      - apt-get update -y\n      - apt-get install -y maven\n  pre_build:\n    commands:\n      - echo Nothing to do in the pre_build phase...\n  build:\n    commands:\n      - echo Build started on `date`\n      - mvn install\n  post_build:\n    commands:\n      - echo Build completed on `date`\nartifacts:\n  files:\n    - target/messageUtil-1.0.jar\n  discard-paths: yes"
+# sudo apt-get install curl linux-image-extra-$(uname -r) linux-image-extra-virtual && sudo apt-get install -y lsb-release apt-transport-https ca-certificates && curl -fsSL https://yum.dockerproject.org/gpg | sudo apt-key add - && sudo add-apt-repository "deb https://apt.dockerproject.org/repo/ ubuntu-$(lsb_release -cs) main" && sudo apt-get update && sudo apt-get -y install docker-engine && sudo docker build -t thing:dockerthing .
+
+version: 0.1
+
+environment_variables:
+  plaintext:
+    key: "value"
+
+            
+phases:
+  install:
+    commands:
+      - echo "install phase"
+  pre_build:
+    commands:
+      - echo "pre_build phase"
+  build:
+    commands:
+      - docker build -t thing:dockerthing .
+      - docker images
+  post_build:
+    commands:
+      - echo "post_build phase"
+
+  discard-paths: yes
