@@ -8,10 +8,10 @@ environment_variables:
 phases:
   install:
     commands:
-      - "echo 'install phase'"
+      - echo "install phase"
   pre_build:
     commands:
-      - "echo 'pre_build phase'"
+      - echo "pre_build phase"
   build:
     commands:
       - docker build -t thing:dockerthing .
